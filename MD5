@@ -1,10 +1,10 @@
-4b2e9219d56a16fb8ef006ccbbb5a8fc *DESCRIPTION
+e7bd7ea169ee3359884b59214aa6243f *DESCRIPTION
 e20e454dd825e32673a0eba4740caf3b *NAMESPACE
 a1d20aa874ee82dde7db01691182538d *R/normMMSE.R
 5708fba01b0ba89e7041066975cbd17c *R/plot.predMMSE.R
 241040cf6b5b0b695663b73796c064db *R/predictMMSE.R
-bf0a82838c9249d3fe91e0b42ee011a3 *man/NormPsy-package.Rd
-e8a086b644314326cedae095a5b2bf97 *man/normMMSE.Rd
+bbd150f98e1da2c4e6caefe5baf02055 *man/NormPsy-package.Rd
+0cdc1dc48db79fb5a662468d90180b99 *man/normMMSE.Rd
 075dd49f8bb2f7169e89fd7ee7fd0b13 *man/plot.predMMSE.Rd
 b59d714c34400622130736fe007bb54a *man/predictMMSE.Rd
 b9a7c33f1bb2a09f2444f1172acc07c4 *src/Makevars.in

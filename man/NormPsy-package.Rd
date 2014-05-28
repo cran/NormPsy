@@ -12,13 +12,16 @@ This package provides functions for normalizing psychometric test scores. The no
 \tabular{ll}{
 Package: \tab NormPsy\cr
 Type: \tab Package\cr
-Version: \tab 1.0\cr
+Version: \tab 1.0.2\cr
 Date: \tab 2014-05-07\cr
 License: \tab GPL\cr
 }
 }
 \author{
 Cecile Proust-Lima, Viviane Philipps
+
+Maintainer: Cecile Proust-Lima  <cecile.proust-lima@inserm.fr>
 }
-%\references{
-%}
+\references{
+Philipps V, Amieva H, Andrieu S, Dufouil C, Berr C, Dartigues J-F, et al. Normalized mini-mental state examination for assessing cognitive change in population-based brain aging studies. Neuroepidemiology. 2014; 43(1) 15-25. 
+}

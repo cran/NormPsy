@@ -19,6 +19,10 @@ a numeric vector containing MMSE scores (integer between 0 and 30)
 a vector containing the transformed MMSE scores
 }
 
+\references{
+Philipps V, Amieva H, Andrieu S, Dufouil C, Berr C, Dartigues J-F, et al. Normalized mini-mental state examination for assessing cognitive change in population-based brain aging studies. Neuroepidemiology. 2014; 43(1) 15-25. 
+}
+
 \author{
 Cecile Proust-Lima, Viviane Philipps
 }
