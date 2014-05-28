@@ -1,0 +1,6 @@
+exportPattern("^[[:alpha:]]+")
+useDynLib(NormPsy)
+import(lcmm)
+
+S3method(plot,predMMSE)
+

@@ -1,0 +1,5 @@
+all: $(SHLIB)
+
+backtransformation.o : backtransformation.f90
+	$(F77) $(SAFE_FFLAGS) -c -o backtransformation.o backtransformation.f90
+
