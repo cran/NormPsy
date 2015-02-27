@@ -29,7 +29,7 @@ predictMMSE <- function(model,VarTime,Timelim,nTime,Xprofile,methInteg="GH",nsim
    colnames(newdata) <- c(VarTime,names(Xprofile))
   #}
   
-   mu <- lcmm::predictY(model,newdata)
+   mu <- lcmm::predictY(model,newdata,var.time=VarTime)[[1]]
    nobs <- length(mu[,1])
    ch <- matrix(0,sum(model$idea0),sum(model$idea0))
    ch[lower.tri(ch,diag=TRUE)] <- model$cholesky
@@ -125,7 +125,7 @@ predictMMSE <- function(model,VarTime,Timelim,nTime,Xprofile,methInteg="GH",nsim
       bdraw <- model$best + Chol %*% bdraw
       modeldraw <- model
       modeldraw$best <- bdraw
-      mudraw <- lcmm::predictY(modeldraw,newdata)
+      mudraw <- lcmm::predictY(modeldraw,newdata,var.time=VarTime)[[1]]
 
       Ymarg <- rep(0,nobs)
       out <- .Fortran("backtransformation",as.double(mudraw),as.double(VC0),as.double(VC1),as.integer(nobs),as.double(prm.transfo),
@@ -191,7 +191,7 @@ predictMMSE <- function(model,VarTime,Timelim,nTime,Xprofile,methInteg="GH",nsim
      bdraw <- model$best + Chol %*% bdraw
      modeldraw <- model
      modeldraw$best <- bdraw
-     mudraw <- lcmm::predictY(modeldraw,newdata)
+     mudraw <- lcmm::predictY(modeldraw,newdata,var.time=VarTime)[[1]]
 
      for(g in 1:nbclasses)
      {

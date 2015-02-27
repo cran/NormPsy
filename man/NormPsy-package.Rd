@@ -12,8 +12,8 @@ This package provides functions for normalizing psychometric test scores. The no
 \tabular{ll}{
 Package: \tab NormPsy\cr
 Type: \tab Package\cr
-Version: \tab 1.0.2\cr
-Date: \tab 2014-05-07\cr
+Version: \tab 1.0.3\cr
+Date: \tab 2015-02-27\cr
 License: \tab GPL\cr
 }
 }
