@@ -2,14 +2,8 @@
 
 predictMMSE <- function(model,VarTime,Timelim,nTime,Xprofile,methInteg="GH",nsim=20,draws=FALSE,ndraws=2000)
 {
- #dyn.load("backtransformation.so")
- # require(lcmm)
-
  if(missing(model)) stop("The argument 'model' should be specified")
- #if(missing(newdata)) stop("The argument newdata should be specified")
  if(!inherits(model,"hlme")) stop("Use with hlme object only")
- #if (!inherits(newdata, "data.frame")) stop("newdata should be a data.frame object")
- #if(length(prm.transfo) != (length(nodes)+2)) stop(paste("With",length(nodes),"nodes,",length(nodes)+2,"parameters are required"))
  if(!(methInteg %in% c("GH","MC",0,1))) stop("Only Gauss-Hermite (0 or 'GH') and Monte-Carlo (1 or 'MC') integration methods are available")
  if(methInteg %in% c("GH",0) & !(nsim %in% c(5,7,9,15,20,30,40,50))) stop("For Gauss-Hermite integration method, 'nsim' should be either 5,7,9,15,20,30,40 or 50")
  if(isTRUE(draws) & model$conv!=1) stop("No confidence interval can be computed since the program did not converge properly ")
@@ -20,16 +14,14 @@ predictMMSE <- function(model,VarTime,Timelim,nTime,Xprofile,methInteg="GH",nsim
   
   nbclasses <- model$ng
   
-  #creer newdata
-  #if(missing(newdata))
-  #{
-   time <- seq(Timelim[1],Timelim[2],length.out=nTime) #si 2 varialbes de temps ???
+
+   time <- seq(Timelim[1],Timelim[2],length.out=nTime) 
    newdata <- as.data.frame(sapply(Xprofile,rep,length.out=nTime))
    newdata <- cbind(time,newdata)
    colnames(newdata) <- c(VarTime,names(Xprofile))
-  #}
+
   
-   mu <- lcmm::predictY(model,newdata,var.time=VarTime)[[1]]
+   mu <- lcmm::predictY(model,newdata=newdata,var.time=VarTime,draws=FALSE)[[1]]
    nobs <- length(mu[,1])
    ch <- matrix(0,sum(model$idea0),sum(model$idea0))
    ch[lower.tri(ch,diag=TRUE)] <- model$cholesky
@@ -125,7 +117,7 @@ predictMMSE <- function(model,VarTime,Timelim,nTime,Xprofile,methInteg="GH",nsim
       bdraw <- model$best + Chol %*% bdraw
       modeldraw <- model
       modeldraw$best <- bdraw
-      mudraw <- lcmm::predictY(modeldraw,newdata,var.time=VarTime)[[1]]
+      mudraw <- lcmm::predictY(modeldraw,newdata=newdata,var.time=VarTime,draws=FALSE)[[1]]
 
       Ymarg <- rep(0,nobs)
       out <- .Fortran("backtransformation",as.double(mudraw),as.double(VC0),as.double(VC1),as.integer(nobs),as.double(prm.transfo),
@@ -180,7 +172,6 @@ predictMMSE <- function(model,VarTime,Timelim,nTime,Xprofile,methInteg="GH",nsim
     ydraws <- NULL
 
     Mat <- matrix(0,ncol=length(model$best),nrow=length(model$best))
-    # que la partie sup utilis?e donc OK si rien en bas
     Mat[upper.tri(Mat,diag=TRUE)]<- model$V
     Chol <- chol(Mat)
     Chol <- t(Chol)
@@ -191,7 +182,7 @@ predictMMSE <- function(model,VarTime,Timelim,nTime,Xprofile,methInteg="GH",nsim
      bdraw <- model$best + Chol %*% bdraw
      modeldraw <- model
      modeldraw$best <- bdraw
-     mudraw <- lcmm::predictY(modeldraw,newdata,var.time=VarTime)[[1]]
+     mudraw <- lcmm::predictY(modeldraw,newdata=newdata,var.time=VarTime,draws=FALSE)[[1]]
 
      for(g in 1:nbclasses)
      {

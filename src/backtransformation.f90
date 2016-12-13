@@ -21,8 +21,8 @@ subroutine backtransformation(mu,VC0,VC1,maxmes,spl &
   IMPLICIT NONE
 
   ! in input
-  double precision,dimension(maxmes),intent(in) ::mu
   integer,intent(in)::maxmes,nbzitr,nsim,methInteg
+  double precision,dimension(maxmes),intent(in) ::mu
   double precision,dimension(nbzitr),intent(in)::zitr0
   double precision,dimension(nbzitr+2),intent(in)::spl
   double precision, dimension(maxmes),intent(in)::VC0

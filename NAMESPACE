@@ -1,6 +1,9 @@
 exportPattern("^[[:alpha:]]+")
 useDynLib(NormPsy)
 import(lcmm)
+importFrom("grDevices", "rainbow")
+     importFrom("stats", "formula", "model.matrix", "na.omit", "quantile",
+     "rnorm")
 
 S3method(plot,predMMSE)
 

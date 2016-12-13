@@ -20,8 +20,11 @@ a vector containing the transformed MMSE scores
 }
 
 \references{
-Philipps V, Amieva H, Andrieu S, Dufouil C, Berr C, Dartigues J-F, et al. Normalized mini-mental state examination for assessing cognitive change in population-based brain aging studies. Neuroepidemiology. 2014; 43(1) 15-25. 
-}
+  Philipps, V. and Amieva, H. and Andrieu, S. and Dufouil C.and Berr,
+  C. and Dartigues, J-F  and Jacqmin-Gadda, H. and Proust-Lima, C (2014).
+  Normalized MMSE for assessing cognitive change in population-based
+  aging studies. NeuroEpidemiology, in press.
+ }
 
 \author{
 Cecile Proust-Lima, Viviane Philipps
@@ -43,9 +46,3 @@ hist(paquid$MMSE,breaks=seq(-0.5,30.5,1),col=2,main="crude MMSE")
 hist(paquid$MMSEnorm,breaks=seq(0,100,10),col=3,main="normalized MMSE")
 }
 
-
-
-
-%\seealso{
-%
-%}

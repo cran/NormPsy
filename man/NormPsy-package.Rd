@@ -19,9 +19,6 @@ License: \tab GPL\cr
 }
 \author{
 Cecile Proust-Lima, Viviane Philipps
-
-Maintainer: Cecile Proust-Lima  <cecile.proust-lima@inserm.fr>
 }
-\references{
-Philipps V, Amieva H, Andrieu S, Dufouil C, Berr C, Dartigues J-F, et al. Normalized mini-mental state examination for assessing cognitive change in population-based brain aging studies. Neuroepidemiology. 2014; 43(1) 15-25. 
-}
+%\references{
+%}
