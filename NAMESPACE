@@ -1,5 +1,5 @@
 exportPattern("^[[:alpha:]]+")
-useDynLib(NormPsy)
+useDynLib(NormPsy, .registration = TRUE, .fixes = "C_")
 import(lcmm)
 importFrom("grDevices", "rainbow")
      importFrom("stats", "formula", "model.matrix", "na.omit", "quantile",

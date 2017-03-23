@@ -90,8 +90,8 @@ predictMMSE <- function(model,VarTime,Timelim,nTime,Xprofile,methInteg="GH",nsim
   {
    if(!isTRUE(draws))
    {
-    res <- .Fortran("backtransformation",as.double(mu),as.double(VC0),as.double(VC1),as.integer(nobs),as.double(prm.transfo),
-         as.integer(nbzitr),as.double(nodes),as.integer(nsim),as.integer(methInteg),y=as.double(Ymarg),package="NormPsy")
+    res <- .Fortran(C_backtransformation,as.double(mu),as.double(VC0),as.double(VC1),as.integer(nobs),as.double(prm.transfo),
+         as.integer(nbzitr),as.double(nodes),as.integer(nsim),as.integer(methInteg),y=as.double(Ymarg))
 
     res$y[which(res$y==9999)] <- NA
     res.pred <-cbind(time, matrix(res$y,ncol=1))
@@ -120,8 +120,8 @@ predictMMSE <- function(model,VarTime,Timelim,nTime,Xprofile,methInteg="GH",nsim
       mudraw <- lcmm::predictY(modeldraw,newdata=newdata,var.time=VarTime,draws=FALSE)[[1]]
 
       Ymarg <- rep(0,nobs)
-      out <- .Fortran("backtransformation",as.double(mudraw),as.double(VC0),as.double(VC1),as.integer(nobs),as.double(prm.transfo),
-         as.integer(nbzitr),as.double(nodes),as.integer(nsim),as.integer(methInteg),y=as.double(Ymarg),package="NormPsy")
+      out <- .Fortran(C_backtransformation,as.double(mudraw),as.double(VC0),as.double(VC1),as.integer(nobs),as.double(prm.transfo),
+         as.integer(nbzitr),as.double(nodes),as.integer(nsim),as.integer(methInteg),y=as.double(Ymarg))
 
       out$y[out$y==9999] <- NA
      
@@ -154,8 +154,8 @@ predictMMSE <- function(model,VarTime,Timelim,nTime,Xprofile,methInteg="GH",nsim
      gVC0 <- wg*VC0
      gVC1 <- wg*VC1
 
-     gres <- .Fortran("backtransformation",as.double(gmu),as.double(gVC0),as.double(gVC1),as.integer(nobs),as.double(prm.transfo),
-         as.integer(nbzitr),as.double(nodes),as.integer(nsim),as.integer(methInteg),y=as.double(Ymarg),package="NormPsy")
+     gres <- .Fortran(C_backtransformation,as.double(gmu),as.double(gVC0),as.double(gVC1),as.integer(nobs),as.double(prm.transfo),
+         as.integer(nbzitr),as.double(nodes),as.integer(nsim),as.integer(methInteg),y=as.double(Ymarg))
 
      gres$y[which(gres$y==9999)] <- NA
      res <- cbind(res,gres$y)
@@ -196,8 +196,8 @@ predictMMSE <- function(model,VarTime,Timelim,nTime,Xprofile,methInteg="GH",nsim
 
       Ymarg <- rep(0,nobs)
 
-      gres <- .Fortran("backtransformation",as.double(gmudraw),as.double(gVC0),as.double(gVC1),as.integer(nobs),as.double(prm.transfo),
-         as.integer(nbzitr),as.double(nodes),as.integer(nsim),as.integer(methInteg),y=as.double(Ymarg),package="NormPsy")
+      gres <- .Fortran(C_backtransformation,as.double(gmudraw),as.double(gVC0),as.double(gVC1),as.integer(nobs),as.double(prm.transfo),
+         as.integer(nbzitr),as.double(nodes),as.integer(nsim),as.integer(methInteg),y=as.double(Ymarg))
 
       gres$y[which(gres$y==9999)] <- NA
       res <- cbind(res,gres$y)

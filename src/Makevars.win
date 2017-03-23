@@ -1,5 +1,8 @@
 all: $(SHLIB)
 
-backtransformation.o : backtransformation.f90
-	$(F77) $(SAFE_FFLAGS) -c -o backtransformation.o backtransformation.f90
+backtransformation.o:	 backtransformation.f90
+			 $(F77) $(SAFE_FFLAGS) -c -o backtransformation.o backtransformation.f90
+
+init.o:			init.c
+			$(CC) $(ALL_CPPFLAGS) $(CFLAGS) -c init.c -o init.o
 
