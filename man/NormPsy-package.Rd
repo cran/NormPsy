@@ -3,22 +3,30 @@
 \alias{NormPsy}
 \docType{package}
 \title{
-Normalization of psychometric test scores
+  \Sexpr[stage=build,results=hide]{lb <- library(help="NormPsy", character.only=TRUE)}
+  \Sexpr[stage=build,results=hide]{descr <- packageDescription("NormPsy")}
+  \Sexpr[stage=build]{descr$Title}
 }
 \description{
-This package provides functions for normalizing psychometric test scores. The normalization aims at correcting the metrological properties of the psychometric tests such as the ceiling and floor effects and the curvilinearity (unequal interval scaling). The package also provides functions to compute and plot predictions in the natural scale of the psychometric test from the estimates of a linear mixed model estimated on the normalized scores.
+  \Sexpr[stage=build]{descr$Description}
 }
 \details{
-\tabular{ll}{
-Package: \tab NormPsy\cr
-Type: \tab Package\cr
-Version: \tab 1.0.3\cr
-Date: \tab 2015-02-27\cr
-License: \tab GPL\cr
-}
+  \tabular{ll}{
+    Package:  \tab \Sexpr[stage=build]{descr$Package}\cr
+    Type:     \tab \Sexpr[stage=build]{descr$Type}\cr
+    Version:  \tab \Sexpr[stage=build]{descr$Version} \cr
+    Date:     \tab \Sexpr[stage=build]{descr$Date}\cr
+    License:  \tab \Sexpr[stage=build]{descr$License}\cr
+    Built:    \tab \Sexpr[stage=build]{descr$Built}\cr
+  }
+  
+  Index:
+  
+  \Sexpr[stage=build,results=rd]{paste("\\\\preformatted{", paste(if(!is.null(lb$info[[2]])) lb$info[[2]] else "No entries",collapse="\\n"), "}", sep="")}
+
 }
 \author{
-Cecile Proust-Lima, Viviane Philipps
+  \Sexpr[stage=build]{descr$Author}
+  
+  Maintainer: \Sexpr[stage=build]{descr$Maintainer}
 }
-%\references{
-%}

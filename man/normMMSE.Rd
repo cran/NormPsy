@@ -23,7 +23,7 @@ a vector containing the transformed MMSE scores
   Philipps, V. and Amieva, H. and Andrieu, S. and Dufouil C.and Berr,
   C. and Dartigues, J-F  and Jacqmin-Gadda, H. and Proust-Lima, C (2014).
   Normalized MMSE for assessing cognitive change in population-based
-  aging studies. NeuroEpidemiology, in press.
+  aging studies. NeuroEpidemiology 43, 15-25.
  }
 
 \author{
